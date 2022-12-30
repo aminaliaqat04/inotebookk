@@ -16,7 +16,7 @@ const Signup = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:3000/api/auth/createuser`;
+    const url = `http://localhost:5000/api/auth/createuser`;
     const {name, email, password, cpassword} = credentials;
     const response = await fetch(url, {
       method: "POST",
