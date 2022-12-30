@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.alert-success{
+  background-color: #D1E7DD;
+  border: 1px solid #a5d6c0;
+}
+.alert-oopsie{
+  background-color: #F8D7DA;
+  border: 1px solid #d8969b;
+}
