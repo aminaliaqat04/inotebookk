@@ -17,7 +17,7 @@
 var mongoose = require('mongoose');
 require('dotenv').config()
 // const mongoURI = "mongodb+srv://inam:Qwqw1234@cluster0.vaq0dr6.mongodb.net/?retryWrites=true&w=majority";
-const mongoURI = 'mongodb+srv://AminaL:iNotebook2022@clustera.nlql14n.mongodb.net/inotebook';
+const mongoURI = process.env.MONGO_URL;
 
 const connectToMongo = ()=>{
     mongoose.connect(mongoURI);
