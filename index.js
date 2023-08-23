@@ -4,7 +4,6 @@ const cors = require('cors')
 const express = require('express')
 const path = require('path')
 
-connectToMongo();
 const app = express()
 
 app.use(cors())
@@ -26,9 +25,11 @@ app.get("*", function(req, res) {
   })
   
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`iNotebook app listening on port ${port}`)
-  // console.log(process.env);
+connectToMongo().then(() => {
+  app.listen(port, () => {
+    console.log(`iNotebook app listening on port ${port}`)
+    // console.log(process.env);
+  })
 })
 
 // connectToMongo(()=>{
