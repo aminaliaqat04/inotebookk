@@ -28,6 +28,8 @@ const FullNote = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4">
           <div className='col-span-1 md:col-span-3'>
             {notes.map((note) => {
+
+              const processedDescription = note.description.replace(/<br>/g, "\n");
               if (note._id === params.id)
                 return (
                   <>
@@ -46,7 +48,14 @@ const FullNote = () => {
                         <img src={note.image} className=" object-cover w-full h-96 rounded-lg shadow-xl border-2 border-indigo-300" alt={`${note.title}`} />
                       </div>}
                     </div>
-                    <p className='my-5'>{note.description}</p>
+                    <p className='my-5'>
+                      {processedDescription.split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            <br />
+                        </React.Fragment>
+                      ))}
+                    </p>
                     <small>Tags: {note.tag}</small>
                   </>
                 );
