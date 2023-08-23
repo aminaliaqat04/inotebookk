@@ -9,8 +9,8 @@ node_modules
 /frontend/coverage
 
 # production
-/build
-/frontend/build
+# /build
+# /frontend/build
 
 # misc
 .DS_Store
