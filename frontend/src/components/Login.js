@@ -17,6 +17,7 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const url = `/api/auth/login`;
+        // const url = `http://localhost:5000/api/auth/login`;
         const response = await fetch(url, {
             method: "POST",
             headers: {

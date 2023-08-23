@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import modalContext from "../context/modals/modalContext";
+import FileBase64 from 'react-file-base64';
 
 const EditNoteModal = (props) => {
     const mContext = useContext(modalContext);
@@ -8,6 +9,14 @@ const EditNoteModal = (props) => {
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
+
+    const addImage = (e) => {
+        console.log(e)
+        // setNewNote({ ...newnote, [e.target.name]: e.target.files[0] })
+        setNote({ ...note, eimage: e.base64 })
+        console.log(note );
+    }
+
     return (
         <>
             <div className={`${toggleModal ? "block" : 'hidden'} relative z-10`} aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -27,7 +36,11 @@ const EditNoteModal = (props) => {
                                             <input className='rounded border border-slate-300 h-10 px-5' type='text' placeholder='Title name' id="etitle" name="etitle" value={note.etitle} onChange={onChange} />
                                             <input className='rounded border border-slate-300 h-10 px-5' type='text' placeholder='Tags' id="etag" name="etag" value={note.etag} onChange={onChange} />
                                             <textarea className='rounded resize-none border border-slate-300 px-5 py-2' placeholder='Start typing...' rows="15" id="edescription" name="edescription" onChange={onChange} value={note.edescription}></textarea>
-                                            
+                                            <FileBase64
+                                                id = "image"
+                                                name="image"
+                                                multiple={ false }
+                                                onDone={ addImage } />
                                         </form>
                                     </div>
                                 </div>
